@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:autoText="false"
         android:text="Crie uma conta"
         android:textColor="@android:color/holo_red_dark"
@@ -22,46 +22,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/txEmail"
         android:layout_width="268dp"
         android:layout_height="55dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastrar" />
+        app:layout_constraintTop_toBottomOf="@+id/txNome" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/txSenha"
         android:layout_width="264dp"
         android:layout_height="55dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/txEmail" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/confirmSenha"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/txSenha" />
 
     <Button
         android:id="@+id/button3"
@@ -75,6 +75,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmSenha" />
+
+    <EditText
+        android:id="@+id/txNome"
+        android:layout_width="268dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrar" />
 
 </android.support.constraint.ConstraintLayout>

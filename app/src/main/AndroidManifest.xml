@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RecuperarSenhaActivity" />
-        <activity android:name=".CadastrarActivity"></activity>
+        <activity android:name=".CadastrarActivity" />
     </application>
 
 </manifest>
