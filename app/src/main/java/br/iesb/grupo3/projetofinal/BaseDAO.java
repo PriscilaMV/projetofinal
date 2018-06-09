@@ -16,7 +16,7 @@ public class BaseDAO extends SQLiteOpenHelper {
 
     public static final String tabela_contato = "usuario";
 
-    //Nome dos campos
+
     public static final String campo_id = "_id";
     public static final String campo_nome = "nome";
     public static final String campo_email = "email";
