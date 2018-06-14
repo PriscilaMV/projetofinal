@@ -20,47 +20,26 @@ public class UserDAO {
         baseDAO = new BaseDAO(context);
     }
 
-    public void open() throws SQLException {
-        database = baseDAO.getWritableDatabase();
-    }
+    public String newUser(String nome, String email, String senha, String confirmsenha) {
 
-    public void close() {
-        baseDAO.close();
-    }
-
-    public long novoUser(User user) {
         ContentValues values = new ContentValues();
+        long resultado;
 
-        values.put(BaseDAO.campo_id, user.getId());
-        values.put(BaseDAO.campo_nome, user.getNome());
-        values.put(BaseDAO.campo_email , user.getEmail());
-        values.put(BaseDAO.campo_senha, user.getSenha());
-        values.put(BaseDAO.campo_confirmsenha, user.getConfirmsenha());
+        database = baseDAO.getWritableDatabase();
+        values.put(BaseDAO.campo_nome, nome);
+        values.put(BaseDAO.campo_email, email);
+        values.put(BaseDAO.campo_senha, senha);
+        values.put(BaseDAO.campo_confirmsenha, confirmsenha);
 
+        resultado = database.insert(BaseDAO.tabela_contato, null, values);
+        database.close();
 
-        return database.insert(BaseDAO.tabela_contato, null, values);
-    }
+        if (resultado == -1) {
+            return "Erro ao inserir registro";
+        } else {
+            return "Registro inserido com sucesso";
 
-    public List<User> lerUsuarios() {
-        Cursor c = database.rawQuery("SELECT * FROM " + BaseDAO.tabela_contato, null);
-        List<User> usuarios = new ArrayList<User>();
-        if (c.moveToFirst()) {
-            while (!c.isAfterLast()) {
-                User user = new User(
-                        c.getLong(c.getColumnIndex(BaseDAO.campo_id)),
-                        c.getString(c.getColumnIndex(BaseDAO.campo_nome)),
-                        c.getString(c.getColumnIndex(BaseDAO.campo_email)),
-                        c.getString(c.getColumnIndex(BaseDAO.campo_senha)),
-                        c.getString(c.getColumnIndex(BaseDAO.campo_confirmsenha)));
-                usuarios.add(user);
-                c.moveToNext();
-            }
         }
-        c.close();
-
-        return usuarios;
     }
-
-
-    }
+}
 

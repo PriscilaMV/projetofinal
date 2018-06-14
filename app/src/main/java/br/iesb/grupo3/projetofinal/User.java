@@ -12,16 +12,8 @@ public class User implements Serializable {
     private String email;
     private String senha;
     private String confirmsenha;
-
     public User(){
 
-    }
-
-    public User(String nome, String email, String senha, String confirmsenha) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.confirmsenha = confirmsenha;
     }
 
     public User(long id, String nome, String email, String senha, String confirmsenha) {
