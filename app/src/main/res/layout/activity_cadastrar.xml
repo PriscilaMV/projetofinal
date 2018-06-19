@@ -27,13 +27,14 @@
         android:layout_height="55dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txNome" />
+        app:layout_constraintTop_toBottomOf="@+id/cadastrar" />
 
     <EditText
         android:id="@+id/txSenha"
@@ -50,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txEmail" />
 
     <EditText
-        android:id="@+id/confirmSenha"
+        android:id="@+id/txConfirmSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -67,31 +68,29 @@
         android:id="@+id/btSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="Salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txConfirmSenha" />
+
+    <Button
+        android:id="@+id/btCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Salvar"
+        android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmSenha"
-        app:layout_constraintVertical_bias="0.218" />
-
-    <EditText
-        android:id="@+id/txNome"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btSalvar"
+        app:layout_constraintVertical_bias="0.157" />
 
 
 </android.support.constraint.ConstraintLayout>

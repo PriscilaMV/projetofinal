@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -24,53 +25,56 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth= FirebaseAuth.getInstance();
 
-        txtEmail= findViewById(R.id.txtEmail);
-        txtSenha= findViewById(R.id.txtSenha);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        txtEmail = findViewById(R.id.txtEmail);
+        txtSenha = findViewById(R.id.txtSenha);
 
-        Button entrar= findViewById(R.id.entrar);
-        entrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                login();
-            }
-        });
-
-        TextView esqueceu= findViewById(R.id.esqueceu);
-        esqueceu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent t = new Intent(LoginActivity.this, RecuperarSenhaActivity.class);
-                startActivity(t);
-            }});
-
-        TextView criar= findViewById(R.id.txtCriar);
-        criar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               Intent t = new Intent(LoginActivity.this, CadastrarActivity.class);
-                startActivity(t);
-            }});
-
-    }
-
-    public void login(){
-        Task<AuthResult> taskLogin= mAuth.signInWithEmailAndPassword(txtEmail.getText().toString(),
-                txtSenha.getText().toString());
-
-        taskLogin.addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if (!task.isSuccessful()) {
-                    Toast.makeText(LoginActivity.this,"Não foi possível efetuar login", Toast.LENGTH_LONG).show();
-                }else{
-                    Intent it= new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(it);
+            Button Entrar = findViewById(R.id.btEntrar);
+            Entrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (txtEmail.getText().toString().equals("") || txtSenha.getText().toString().equals("")) {
+                        Toast.makeText(LoginActivity.this, "E-mail e senha obrigatórios!", Toast.LENGTH_LONG).show();
+                    } else {
+                        login();
+                    }
                 }
-            }
-        });
+            });
 
-    }
+            TextView esqueceu = findViewById(R.id.txtRedefinirSenha);
+            esqueceu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent t = new Intent(LoginActivity.this, RecuperarSenhaActivity.class);
+                    startActivity(t);
+                }
+            });
+
+            TextView criar = findViewById(R.id.txtCriar);
+            criar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent t = new Intent(LoginActivity.this, CadastrarActivity.class);
+                    startActivity(t);
+                }
+            });
+        }
+
+        private void login(){
+            mAuth.signInWithEmailAndPassword(txtEmail.getText().toString(), txtSenha.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(LoginActivity.this, "Não foi possivel efetuar login.", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent t = new Intent(LoginActivity.this, PerfilActivity.class);
+                                startActivity(t);
+                            }
+                        }
+                    });
+        }
 }
