@@ -45,6 +45,23 @@ public class PerfilActivity extends AppCompatActivity {
                 finish();
             }
         });
+                Button btCalendario = findViewById(R.id.btCalendario);
+        btCalendario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent t = new Intent(PerfilActivity.this,CalendarioActivity.class);
+                startActivity(t);
+            }
+        });
+
+        Button btChat = findViewById(R.id.btChat);
+        btChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent t = new Intent(PerfilActivity.this,Chat.class);
+                startActivity(t);
+            }
+        });
        Button btMapa = findViewById(R.id.btMapa);
         btMapa.setOnClickListener(new View.OnClickListener() {
             @Override
