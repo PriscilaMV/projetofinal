@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3fb399"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/yLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="-40dp"
+        android:text="2018"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+
+
+    <TextView
+        android:id="@+id/mLabel"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="#206757"
+        android:gravity="center"
+        android:text="Julho"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+
+
+    <TextView
+        android:id="@+id/dLabel"
+        android:layout_width="220dp"
+        android:layout_height="200dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="20"
+        android:textColor="#206757"
+        android:textSize="56sp" />
+
+
+    <TextView
+        android:id="@+id/eLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="-40dp"
+        android:text="Quarta"
+        android:textColor="#206757"
+        android:textSize="18sp" />
+
+</LinearLayout>
